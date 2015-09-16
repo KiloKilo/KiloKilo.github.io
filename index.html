@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        @font-face {
+            font-family: Montserrat-Light;
+            src: url('fonts/montserrat-light-webfont.woff2') format('woff2'), url('/fonts/montserrat-light-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: Montserrat-UltraLight;
+            src: url('fonts/montserrat-ultralight-webfont.woff2') format('woff2'), url('/fonts/montserrat-ultralight-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            height: 100%;
+        }
+
+        nav {
+            position: absolute;
+            margin: auto;
+            top: 100px;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-width: 1280px;
+            font-size: 0;
+        }
+
+        nav img {
+            display: inline-block;
+            width: 33.33333%;
+            padding: 10px;
+            height: auto;
+        }
+
+        h1 {
+            position: absolute;
+            margin: auto;
+            top: 10px;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-width: 1280px;
+            font-family: Montserrat-UltraLight, sans-serif;
+            font-size: 40px;
+            text-transform: uppercase;
+            color: #080D14;
+            line-height: 1.4;
+            padding: 0 0 0 10px;
+        }
+
+        h1.neg {
+            color: white;
+
+        }
+
+        h1 span {
+            display: inline-block;
+            color: white;
+            background: #080D14;
+            padding: 0 6px;
+        }
+
+        h1.neg span {
+            background: white;
+            color: #080D14;
+        }
+
+        iframe {
+            position: absolute;
+            display: none;
+            width: 100%;
+            height: 100%;
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        button {
+            display: none;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            line-height: 1.4;
+            font-family: Montserrat-UltraLight, sans-serif;
+            font-size: 20px;
+            color: #080D14;
+            background: white;
+            text-transform: uppercase;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+
+<iframe></iframe>
+<nav>
+    <a href="projects/rings/index.html">
+        <img src="img/rings.jpg">
+    </a>
+    <a href="projects/circles/index.html">
+        <img src="img/circles.jpg">
+    </a>
+    <a href="projects/waves/index.html">
+        <img src="img/waves.jpg">
+    </a>
+    <a>
+        <img src="img/default.jpg">
+    </a>
+    <a>
+        <img src="img/default.jpg">
+    </a>
+</nav>
+<h1>KiloKilo <span>Lab</span></h1>
+<button>Back</button>
+
+<script>
+
+    var nav = document.querySelector('nav');
+    var anchors = nav.querySelectorAll('a');
+    var iframe = document.querySelector('iframe');
+    var back = document.querySelector('button');
+    var h1 = document.querySelector('h1');
+
+    for (var i = 0; i < anchors.length; i++) {
+        anchors[i].addEventListener('click', function () {
+            event.preventDefault();
+            iframe.src = this.href;
+            iframe.style.display = 'block';
+            back.style.display = 'block';
+            nav.style.display = 'none';
+            h1.className = 'neg';
+        });
+    }
+
+    back.addEventListener('click', function () {
+        iframe.src = '';
+        iframe.style.display = 'none';
+        back.style.display = 'none';
+        nav.style.display = 'block';
+        h1.className = '';
+    });
+
+</script>
+</body>
+</html>
